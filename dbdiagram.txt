@@ -1,0 +1,91 @@
+Table "titles"
+{
+  "id" guid [pk, not null]
+  "keywords" varchar(255) [not null]
+  "title_en" varchar(255) [not null]
+  "title_mm" varchar(255) [not null]
+  "status" bool
+  "statusType" ENUM('banned','temBanned','delete','Epire')
+  "viewCount" int
+  "streaming_url" varchar(255) [not null] 
+  "download_url" varchar(255) [not null]
+  "sorting" int(11) [not null, default: "0"]
+  "created_at" timestamp [not null, default: `CURRENT_TIMESTAMP`]
+  "updated_at" timestamp [not null, default: "0000-00-00 00:00:00"]
+}
+
+Table "genres"
+{  
+  "id" guid [pk, not null]
+  "name_mm" varchar(255)
+  "name_en" varchar(255)
+  "created_at" timestamp [not null, default: `CURRENT_TIMESTAMP`]
+  "updated_at" timestamp [not null, default: "0000-00-00 00:00:00"]
+}
+
+Table "genre_titles"
+{
+  "genre_id" guid [not null, ref: > genres.id]
+  "title_id" guid [not null, ref: > titles.id]
+  "created_at" timestamp [not null, default: `CURRENT_TIMESTAMP`]
+  "updated_at" timestamp [not null, default: "0000-00-00 00:00:00"]
+}
+
+Table "tags"
+{
+   "id" guid [pk, not null]
+   "name_mm" varchar(255)
+   "name_en" varchar(255)
+   "created_at" timestamp [not null, default: `CURRENT_TIMESTAMP`]
+  "updated_at" timestamp [not null, default: "0000-00-00 00:00:00"]
+}
+
+Table "tag_titles"
+{
+  "title_id" guid [not null, ref: > titles.id]
+  "tag_id" guid [ not null, ref: > tags.id]
+  "created_at" timestamp [not null, default: `CURRENT_TIMESTAMP`]
+  "updated_at" timestamp [not null, default: "0000-00-00 00:00:00"]
+}
+
+
+Table "social Media"
+{
+  "iconLink" string
+  "name" string
+  "created_at" timestamp [not null, default: `CURRENT_TIMESTAMP`]
+  "updated_at" timestamp [not null, default: "0000-00-00 00:00:00"]
+}
+
+
+ Table "credits"
+ {
+    "id" guid [pk, not null] 
+    "name_en" varchar(255) [not null]
+    "name_mm" varchar(255) [not null]
+    "keywords" varchar(255) [not null]
+    "created_at" timestamp [not null, default: `CURRENT_TIMESTAMP`]
+    "updated_at" timestamp [not null, default: "0000-00-00 00:00:00"]
+  }
+
+
+
+Table "titles_credits"
+{
+  "title_id" guid [not null, ref: > titles.id]
+  "credits_id" guid [not null, ref: > credits.id]
+  "created_at" timestamp [not null, default: `CURRENT_TIMESTAMP`]
+  "updated_at" timestamp [not null, default: "0000-00-00 00:00:00"]
+  
+}
+
+
+
+
+
+
+
+
+
+
+
