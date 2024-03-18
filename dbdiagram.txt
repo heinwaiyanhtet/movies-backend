@@ -49,7 +49,7 @@ Table "tag_titles"
 }
 
 
-Table "social Media"
+Table "social_media"
 {
   "iconLink" string
   "name" string
@@ -58,16 +58,15 @@ Table "social Media"
 }
 
 
- Table "credits"
- {
+Table "credits"
+{
     "id" guid [pk, not null] 
     "name_en" varchar(255) [not null]
     "name_mm" varchar(255) [not null]
     "keywords" varchar(255) [not null]
     "created_at" timestamp [not null, default: `CURRENT_TIMESTAMP`]
     "updated_at" timestamp [not null, default: "0000-00-00 00:00:00"]
-  }
-
+}
 
 
 Table "titles_credits"
@@ -76,7 +75,6 @@ Table "titles_credits"
   "credits_id" guid [not null, ref: > credits.id]
   "created_at" timestamp [not null, default: `CURRENT_TIMESTAMP`]
   "updated_at" timestamp [not null, default: "0000-00-00 00:00:00"]
-  
 }
 
 
