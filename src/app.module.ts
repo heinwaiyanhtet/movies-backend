@@ -8,9 +8,19 @@ import { SocialMediaModule } from './social_media/social_media.module';
 import { TagTitlesModule } from './tag_titles/tag_titles.module';
 import { CreditsModule } from './credits/credits.module';
 import { TitlesCreditsModule } from './titles_credits/titles_credits.module';
+import { DatabaseModule } from './database/database.moduel';
 
 @Module({
-  imports: [TitlesModule, GenresModule, TagsModule, SocialMediaModule, TagTitlesModule, CreditsModule, TitlesCreditsModule],
+  imports: [
+    TitlesModule, 
+    GenresModule, 
+    TagsModule, 
+    SocialMediaModule,
+    TagTitlesModule,
+    CreditsModule, 
+    TitlesCreditsModule,
+    DatabaseModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
