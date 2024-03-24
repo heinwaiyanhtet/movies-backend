@@ -1,7 +1,16 @@
-import { ObjectType, Field, Int } from '@nestjs/graphql';
+import { ObjectType, Field } from '@nestjs/graphql';
 
 @ObjectType()
 export class SocialMedia {
-  @Field(() => Int, { description: 'Example field (placeholder)' })
-  exampleField: number;
+    @Field()
+    iconLink: string;
+
+    @Field()
+    name: string;
+
+    @Field()
+    createdAt: Date;
+
+    @Field()
+    updatedAt: Date;
 }

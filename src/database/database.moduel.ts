@@ -1,19 +1,14 @@
 import { Global, Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { GraphQLModule } from '@nestjs/graphql';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 
 @Global()
 @Module({
     imports : [
-        TypeOrmModule.forRoot({
-            "type": "mysql",
-            "host": "localhost",
-            "port": 3306,
-            "username": "test",
-            "password": "password",
-            "database": "test",
-            autoLoadEntities:true,
-            "synchronize": true
-        })
+        GraphQLModule.forRoot<ApolloDriverConfig>({
+            driver: ApolloDriver,
+            autoSchemaFile: true,
+        }),
     ]
 })
 export class DatabaseModule {}

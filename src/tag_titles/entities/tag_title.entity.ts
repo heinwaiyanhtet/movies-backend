@@ -1,7 +1,16 @@
-import { ObjectType, Field, Int } from '@nestjs/graphql';
+import { ObjectType, Field } from '@nestjs/graphql';
 
 @ObjectType()
 export class TagTitle {
-  @Field(() => Int, { description: 'Example field (placeholder)' })
-  exampleField: number;
+    @Field(() => String)
+    titleId: string;
+
+    @Field(() => String)
+    tagId: string;
+
+    @Field()
+    createdAt: Date;
+
+    @Field()
+    updatedAt: Date;
 }

@@ -1,10 +1,19 @@
-import { ObjectType, Field, Int } from '@nestjs/graphql';
+import { ObjectType, Field } from '@nestjs/graphql';
 
 @ObjectType()
 export class Genre {
+    @Field(() => String)
+    id: string;
 
-  @Field(() => Int, { description: 'Example field (placeholder)' })
-  
-  exampleField: number;
+    @Field({ nullable: true })
+    nameMm?: string;
 
+    @Field({ nullable: true })
+    nameEn?: string;
+
+    @Field()
+    createdAt: Date;
+
+    @Field()
+    updatedAt: Date;
 }
